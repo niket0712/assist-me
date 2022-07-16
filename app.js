@@ -1,14 +1,11 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
-const session = require('express-session');
-const mysql = require("mysql2");
-const bcrypt = require("bcrypt");
-const flash = require('connect-flash');
-
-
-
-
+const express = require("express"),
+    bodyParser = require("body-parser"),
+    path = require("path"),
+    session = require('express-session'),
+    mysql = require("mysql2"),
+    bcrypt = require("bcrypt"),
+    flash = require('connect-flash');
+let studId;
 const app = express();
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
@@ -99,8 +96,8 @@ app.post("/login", (req, res) => {
         if (err) throw err
         // if user not found
 
-        stud_id = result[0].Id;
-        console.log(stud_id);
+        studId = result[0].Id;
+        console.log(studId);
 
         if (result.length <= 0) {
             req.flash('error', 'Please correct enter email and Password!')
@@ -128,7 +125,7 @@ app.post("/logout", (req, res) => {
 // STUDENT SECTION
 
 app.get("/StudentSection", (req, res) => {
-    con.query("SELECT Id,Question FROM questions where student_id = ?", [stud_id], (err, results) => {
+    con.query("SELECT Id,Question FROM questions where student_id = ?", [studId], (err, results) => {
         res.render("StudentSection", {
             results: results
         });

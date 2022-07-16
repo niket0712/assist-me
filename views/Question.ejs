@@ -8,43 +8,44 @@
     <!-- Bootstrap cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <!-- Css link -->
     <link rel="stylesheet" href="/public/css/questionstyle.css">
 
     <title>Question</title>
 </head>
+
 <body>
 
     <div class="container head">
         <div class="cont">
-            <span> <button class="btn btn-primary back-btn"> <- </button></span>
-            <%= question[0].Question%> 
+            <span class="btn-icon"><i class="fa-solid fa-arrow-left"></i></span>
+            <%= question[0].Question%>
 
-            <!-- <span style="position:absolute; top:20px; right:20px;"> <button class = "btn btn-success"> Edit</button> </span> -->
-            <span class="delete-btn" ><button class="btn btn-danger">Delete</button></span>
-            <div> Set on </div>
-        </div>        
+                <!-- <span style="position:absolute; top:20px; right:20px;"> <button class = "btn btn-success"> Edit</button> </span> -->
+                <span class="delete-btn"><button class="btn btn-danger">Delete</button></span>
+                <div> Set on </div>
+        </div>
     </div>
 
-    <article id="mainArticle" >
+    <article id="mainArticle">
         <div class="container">
             <div class="container text-center">ANSWERS</div>
         </div>
 
         <div class="container cont2">
-            
-            <% answers.forEach(function(answer) {%>
-            <div class="row">
-                
-                <div class="container ans">
-                    <div class="container teacher-dtl"> Answered by ..... teacher</div>
-                    <%=answer.answer%>
-                </div>
-            </div>
-            <% })%>
 
-            <!-- <div class="row">
+            <% answers.forEach(function(answer) {%>
+                <div class="row">
+
+                    <div class="container ans">
+                        <div class="container teacher-dtl"> Answered by ..... teacher</div>
+                        <%=answer.answer%>
+                    </div>
+                </div>
+                <% })%>
+
+                    <!-- <div class="row">
                 <div class="container ans">
                     This tidfkdsjf ds;akg kangkslgk ljglkhdsgd niket patil also niket hiabing the lowest og t all time i s known sas the kdjl k
                 </div>
@@ -65,7 +66,7 @@
     </nav>
     <!-- <div id="siteAds">Ads</div> -->
     <footer id="pageFooter">
-        
+
     </footer>
 
 
