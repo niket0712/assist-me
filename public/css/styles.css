@@ -1,0 +1,41 @@
+body{
+margin:auto;
+
+}
+
+nav {
+    margin: 15px; 
+    padding-bottom: 125px;
+}
+
+.asst{
+    /* margin-top: 5px; */
+    padding-top: 15px;
+}
+
+.heading{
+    margin-bottom: 40px;
+}
+
+.lead{
+        font-weight: 400;
+}
+
+
+.home{
+    
+
+}
+
+.home-img{
+    height: 25rem;
+    width: 30rem;
+}
+
+.home-btn{
+    text-decoration: none;
+}
+
+.home-btn:hover{
+    color:antiquewhite;
+}

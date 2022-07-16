@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <title>Student Question</title>
+</head>
+
+<body>
+    <!-- <nav class="navbar navbar-light bg-light">
+        <div>
+            <a class="navbar-brand" href="/">
+                <span><img src="../public/images/logo2.jpg" width="38" height="36" class="d-inline-block align-top"
+                        alt=""></span>
+                <span class="asst"> Assist Me </span>
+            </a>
+        </div>
+
+        <span class="navbar-text">
+            <a href="home">Home</a>
+        </span>
+        <span class="navbar-text">
+            <a href="home">Logout</a>
+        </span> -->
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <span><img src="../public/images/logo2.jpg" width="38" height="36" class="d-inline-block align-top"
+                        alt=""></span>
+                <span class="asst"> Assist Me </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home">Home</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                  </li>                   -->
+                </ul>
+                <span class="navbar-text ">
+                    <a href="home">Logout</a>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="vh-90">
+        <div class="container py-5 h-100">
+            <form action="/StudentQuestion" method="post">
+
+                <div class="text-center">
+                    <h4>Ask your question.</h4>
+                </div>
+
+                <div class="dropdown text-center text-lg-start mt-4 pt-2">
+                    <label class="form-label" for="form3Example9">Subject</label><br>
+                    <select name="subject" id="lang">
+                        <option value="select">Select a Subject</option>
+                        <option value="1">Mathematics</option>
+                        <option value="2">Chemistry</option>
+                        <option value="3">Physics</option>
+                        <option value="4">Biology</option>
+                    </select>
+                </div>
+
+                <label class="form-label text-center text-lg-start mt-4 pt-2" for="form3Example9">Question:</label>
+                <div class="form-outline text-center text-lg-start ">
+                    <input type="text" id="form12" name="question" class="form-control" />
+                </div>
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
