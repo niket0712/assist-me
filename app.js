@@ -4,9 +4,11 @@ const express = require("express"),
     session = require('express-session'),
     mysql = require("mysql2"),
     bcrypt = require("bcrypt"),
-    flash = require('connect-flash');
+    flash = require('connect-flash'),
+    app = express();
+require('dotenv').config();
+const { PASSWORD, DATABASE, USER, HOST } = process.env;
 let studId;
-const app = express();
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
@@ -23,10 +25,10 @@ app.use(session({
 
 // DATABASE CONNECTION
 let con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Apple123@",
-    database: "assist",
+    host: HOST,
+    user: USER,
+    password: PASSWORD,
+    database: DATABASE,
 });
 
 con.connect((err) => {
@@ -54,13 +56,14 @@ app.get("/studentsignup", (req, res) => {
 });
 
 app.post("/studentsignup", (req, res) => {
+    const { firstname, lastname, gender, dob, email, password } = req.body;
     const user = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        gender: req.body.gender,
-        dob: req.body.dob,
-        email: req.body.email,
-        password: req.body.password
+        firstname,
+        lastname,
+        gender,
+        dob,
+        email,
+        password
     }
 
     con.query("INSERT INTO student set ?", user, (err, result) => {
@@ -68,11 +71,10 @@ app.post("/studentsignup", (req, res) => {
             console.log(err);
             req.flash("error", err);
             res.redirect("studentsignup");
+            return;
         }
-        else {
-            console.log("Registered successfully");
-            res.redirect("/login");
-        }
+        console.log("Registered successfully");
+        res.redirect("/login");
     });
 });
 
