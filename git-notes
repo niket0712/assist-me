@@ -1,0 +1,7 @@
+git log ==> for logs
+git checkout develop ==> to switch the branch
+git checkout -b branch-name => to create new branch
+git gui ==> select the files and then add commit message and the push
+git stash ==> clean unwanted chnages
+git clean -fd
+// git add .  => to add all the into stage
