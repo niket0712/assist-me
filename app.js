@@ -1,15 +1,14 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
-const session = require('express-session');
-const mysql = require("mysql2");
-const bcrypt = require("bcrypt");
-const flash = require('connect-flash');
-
-
-
-
-const app = express();
+const express = require("express"),
+    bodyParser = require("body-parser"),
+    path = require("path"),
+    session = require('express-session'),
+    mysql = require("mysql2"),
+    bcrypt = require("bcrypt"),
+    flash = require('connect-flash'),
+    app = express();
+require('dotenv').config();
+const { PASSWORD, DATABASE, USER, HOST } = process.env;
+let studId;
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
@@ -26,10 +25,10 @@ app.use(session({
 
 // DATABASE CONNECTION
 let con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Apple123@",
-    database: "assist",
+    host: HOST,
+    user: USER,
+    password: PASSWORD,
+    database: DATABASE,
 });
 
 con.connect((err) => {
@@ -57,13 +56,14 @@ app.get("/studentsignup", (req, res) => {
 });
 
 app.post("/studentsignup", (req, res) => {
+    const { firstname, lastname, gender, dob, email, password } = req.body;
     const user = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        gender: req.body.gender,
-        dob: req.body.dob,
-        email: req.body.email,
-        password: req.body.password
+        firstname,
+        lastname,
+        gender,
+        dob,
+        email,
+        password
     }
 
     con.query("INSERT INTO student set ?", user, (err, result) => {
@@ -71,11 +71,10 @@ app.post("/studentsignup", (req, res) => {
             console.log(err);
             req.flash("error", err);
             res.redirect("studentsignup");
+            return;
         }
-        else {
-            console.log("Registered successfully");
-            res.redirect("/login");
-        }
+        console.log("Registered successfully");
+        res.redirect("/login");
     });
 });
 
@@ -99,8 +98,8 @@ app.post("/login", (req, res) => {
         if (err) throw err
         // if user not found
 
-        stud_id = result[0].Id;
-        console.log(stud_id);
+        studId = result[0].Id;
+        console.log(studId);
 
         if (result.length <= 0) {
             req.flash('error', 'Please correct enter email and Password!')
@@ -128,7 +127,7 @@ app.post("/logout", (req, res) => {
 // STUDENT SECTION
 
 app.get("/StudentSection", (req, res) => {
-    con.query("SELECT Id,Question FROM questions where student_id = ?", [stud_id], (err, results) => {
+    con.query("SELECT Id,Question FROM questions where student_id = ?", [studId], (err, results) => {
         res.render("StudentSection", {
             results: results
         });

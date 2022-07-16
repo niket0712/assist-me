@@ -1,4 +1,5 @@
 git log ==> for logs
+git branch ==> to check in which branch we are currently
 git checkout develop ==> to switch the branch
 git checkout -b branch-name => to create new branch
 git gui ==> select the files and then add commit message and the push
