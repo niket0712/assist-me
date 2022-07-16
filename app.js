@@ -101,7 +101,6 @@ app.post("/login", (req, res) => {
 
         stud_id = result[0].Id;
         console.log(stud_id);
-        // console.log(result);
 
         if (result.length <= 0) {
             req.flash('error', 'Please correct enter email and Password!')
