@@ -1,14 +1,16 @@
 const express = require("express"),
-    bodyParser = require("body-parser"),
-    path = require("path"),
-    session = require('express-session'),
-    mysql = require("mysql2"),
-    bcrypt = require("bcrypt"),
-    flash = require('connect-flash'),
-    app = express();
+      bodyParser = require("body-parser"),
+      path = require("path"),
+      session = require('express-session'),
+      mysql = require("mysql2"),
+      bcrypt = require("bcrypt"),
+      flash = require('connect-flash'),
+      app = express();
+
 require('dotenv').config();
 const { PASSWORD, DATABASE, USER, HOST } = process.env;
 let studId;
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));

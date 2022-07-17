@@ -14,16 +14,17 @@
 
     <title>Question</title>
 </head>
+
 <body>
 
     <div class="container head">
         <div class="cont">
-            <span class="btn-icon"><i class="fa-solid fa-arrow-left"></i></span>
-            <%= question[0].Question%>
 
-                <!-- <span style="position:absolute; top:20px; right:20px;"> <button class = "btn btn-success"> Edit</button> </span> -->
+            <span class="back-btn"><a href="./StudentQuestion.ejs"><i class="fa-solid fa-arrow-left"></i></a></span>
+             <%= question[0].Question%>
+                
                 <span class="delete-btn"><button class="btn btn-danger">Delete</button></span>
-                <div> Set on </div>
+                <!-- <div> Set on </div> -->
         </div>
     </div>
 
@@ -36,7 +37,6 @@
 
             <% answers.forEach(function(answer) {%>
                 <div class="row">
-
                     <div class="container ans">
                         <div class="container teacher-dtl"> Answered by ..... teacher</div>
                         <%=answer.answer%>
@@ -53,13 +53,13 @@
 
     </article>
     <nav id="mainNav">
-        <div>
-            Welcome back
+        <div class="welcome">
+            Welcome back Niket
         </div>
 
         <div>
             <form action="logout" method="post">
-                <button class="btn btn-primary" type="submit"> Logout </button>
+                <button class="btn btn-primary logout-btn" type="submit"> Logout </button>
             </form>
         </div>
     </nav>

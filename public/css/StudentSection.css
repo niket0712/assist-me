@@ -25,22 +25,30 @@ div {
   padding: 1.2em;
   /* background: grey; */
 }
+
 #pageHeader {
+  padding-top: 0px;
   grid-area: header;
+  font-size: x-large;
+  color: rgb(100, 98, 98);
 }
+
 #pageFooter {
   grid-area: footer;
   position: relative;
 }
+
 #mainArticle {
   grid-area: article;
 }
+
 #mainNav {
   grid-area: nav;
 }
 #siteAds {
   grid-area: ads;
 }
+
 /* Stack the layout on small devices/viewports. */
 @media all and (max-width: 575px) {
   body {
@@ -55,6 +63,13 @@ div {
   }
 }
 
+.welcome{
+  padding-top: 10px;
+  font-size: x-large;
+  font-weight: 700;
+  color: rgb(122, 124, 126);
+}
+
 #read-more {
   position: fixed;
   bottom: 0;
@@ -63,8 +78,8 @@ div {
 
 .btn1 {
   display: block;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   border: 1px solid;
   margin: 20px;
@@ -74,16 +89,37 @@ div {
   margin: 10px;
   background-color: rgb(208, 218, 223);
   border-radius: 3px;
+  font-weight: 700;
 }
 
 .cont2 {
   margin-top: 30px;
+  font-weight: 700;
+}
+
+.logout-btn{
+  bottom: 10px;
+  position: fixed;
+}
+
+.student{
+  position: absolute;
+  right:14px;
+  width:120px;
+  text-align: center;
+  font-weight: 500;
+  font-size: large;
+  color: rgb(57, 132, 166);
+  border: 2px solid rgb(57, 132, 166);
+  border-radius: 5px;
 }
 
 .question-card {
-  border: 1px solid grey;
-  /* margin-right: 10px; */
+  border: 1px solid rgb(208, 218, 223);
+  color: rgb(75, 74, 74);
   margin-left: 30px;
+  margin-bottom: 30px;
+  background-color: rgb(208, 218, 223);
 }
 
 .question-card a {
@@ -95,4 +131,4 @@ div {
   height: 100%;
 }
 
-/* .right{} */
+
