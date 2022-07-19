@@ -10,9 +10,9 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <!-- Css link -->
-    <link rel="stylesheet" href="/public/css/questionstyle.css">
+    <link rel="stylesheet" href="/public/css/answerstyle.css">
 
-    <title>Question</title>
+    <title>Answer</title>
 </head>
 
 <body>
@@ -20,11 +20,11 @@
     <div class="container head">
         <div class="cont">
 
-            <span class="back-btn"><a href="./StudentQuestion.ejs"><i class="fa-solid fa-arrow-left"></i></a></span>
+            <span class="back-btn"><a href="./.TeacherSection.ejs"><i class="fa-solid fa-arrow-left"></i></a></span>
             <%= question[0].Question%>
 
-                <span class="delete-btn"><button class="btn btn-danger">Delete</button></span>
-                <!-- <div> Set on </div> -->
+
+
         </div>
     </div>
 
@@ -33,18 +33,32 @@
             <div class="container text-center">ANSWERS</div>
         </div>
 
+        <!-- <--  -->
         <div class="container cont2">
 
             <% answers.forEach(function(answer) {%>
                 <div class="row">
                     <div class="container ans">
-                        <div class="container teacher-dtl"> Answered by Monika Kadu</div>
-                        <%=answer.answer%>
+                        
+                             <div class="ans-block"> <%=answer.answer%>  </div>
+                        
+                        
+                             <button class="btn btn-danger delete-btn">Delete</button> 
+                        
                     </div>
                 </div>
                 <% })%>
 
         </div>
+
+        <form action="/TeacherSection/Answer<%=quesId%>" method="post">
+        <div class="container cont3 ">
+
+            <textarea name="ans" id="ans" class="ans-container" cols="140" rows="4"></textarea>
+
+            <button class="btn btn-success upload-btn" type="submit"> UPLOAD</button>
+        </div>
+        </form>
 
     </article>
     <nav id="mainNav">
@@ -59,9 +73,7 @@
         </div>
     </nav>
     <!-- <div id="siteAds">Ads</div> -->
-    <footer id="pageFooter">
 
-    </footer>
 
 
 </body>
